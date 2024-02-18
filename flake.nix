@@ -63,6 +63,13 @@
         system = "aarch64-darwin";
         modules = [
           ./modules/darwin/the-good-machine.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.hw = import ./modules/home-manager/home.nix;
+            home-manager.extraSpecialArgs = {inherit inputs outputs;};
+          }
         ];
 
         inputs = {inherit darwin nixpkgs;};
