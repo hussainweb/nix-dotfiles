@@ -11,6 +11,7 @@
   #   ];
 
   imports = [
+    ./../common
     ./common.nix
   ];
 
@@ -26,8 +27,8 @@
 
   environment.shells = [pkgs.fish];
 
-  users.users.hw = {
-    home = "/Users/hw";
+  users.users.${config.user} = {
+    home = "/Users/${config.user}";
     shell = "${pkgs.fish}/bin/fish";
   };
   users.users.root = {

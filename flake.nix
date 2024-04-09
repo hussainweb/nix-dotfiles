@@ -63,6 +63,9 @@
         system = "aarch64-darwin";
         modules = [
           ./modules/darwin/the-good-machine.nix
+          {
+            user = "hw";
+          }
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
