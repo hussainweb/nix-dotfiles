@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }: {
 
   # Homebrew - Mac-specific packages that aren't in Nix
+  # or for casks for applications that are harder to install with Nix.
   config = lib.mkIf pkgs.stdenv.isDarwin {
 
     # Requires Homebrew to be installed
@@ -32,7 +33,24 @@
         "trash" # Delete files and folders to trash instead of rm
       ];
       casks = [
-        "1password" # 1Password will not launch from Nix on macOS
+        "1password"
+        "1password-cli"
+        "adobe-acrobat-reader"
+        "adobe-creative-cloud"
+        "akiflow"
+        "arc"
+        "choosy"
+        "firefox"
+        "github"
+        "google-chrome"
+        "logseq"
+        "microsoft-edge"
+        "microsoft-office"
+        "raycast"
+        "sublime-text"
+        "tabby"
+        "visual-studio-code"
+        "vlc"
       ];
     };
 

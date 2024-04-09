@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }: {
 
+  # imports =
+  #   [ ./applications ./mail ./neovim ./programming ./repositories ./shell ];
+
   options = {
     user = lib.mkOption {
       type = lib.types.str;

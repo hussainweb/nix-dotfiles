@@ -59,6 +59,7 @@
     homeManagerModules = import ./modules/home-manager;
 
     darwinConfigurations = {
+
       "the-good-machine" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
@@ -77,6 +78,26 @@
 
         inputs = {inherit darwin nixpkgs;};
       };
+
+      "tiny-tardis" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./modules/darwin/tiny-tardis.nix
+          {
+            user = "hw";
+          }
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.hw = import ./modules/home-manager/home.nix;
+            home-manager.extraSpecialArgs = {inherit inputs outputs;};
+          }
+        ];
+
+        inputs = {inherit darwin nixpkgs;};
+      };
+
     };
 
     # Standalone home-manager configuration entrypoint
