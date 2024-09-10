@@ -44,13 +44,17 @@
         "github"
         "google-chrome"
         "logseq"
+        "maccy"
         "microsoft-edge"
         "microsoft-office"
+        "orbstack"
         "raycast"
         "sublime-text"
         "tabby"
         "visual-studio-code"
         "vlc"
+        "warp"
+        "zed"
       ];
     };
 

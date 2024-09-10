@@ -52,10 +52,12 @@
   };
 
   homebrew.casks = [
-    "codewhisperer"
+    "chatgpt"
     "loom"
     "notion"
     "slack"
+    "shottr"
+    "stats"
     "whatsapp"
   ];
 }
