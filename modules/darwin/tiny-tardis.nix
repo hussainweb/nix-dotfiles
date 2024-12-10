@@ -37,22 +37,20 @@
   };
 
   fonts = {
-    fontDir.enable = true;
-    fonts = [
-      pkgs.inter
-      (pkgs.nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "FiraMono"
-          "JetBrainsMono"
-          "SourceCodePro"
-        ];
-      })
+    packages = with pkgs; [
+      inter
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.meslo-lg
+      nerd-fonts.monoid
+      nerd-fonts.sauce-code-pro
     ];
   };
 
   homebrew.casks = [
     "chatgpt"
+    "gitkraken"
     "loom"
     "notion"
     "slack"
