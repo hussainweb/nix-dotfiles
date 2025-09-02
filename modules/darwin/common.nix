@@ -14,9 +14,6 @@
     ./homebrew.nix
   ];
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-
   nix = {
     package = pkgs.nix;
 
@@ -44,7 +41,9 @@
       "1password-cli"
     ];
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
+
+  system.primaryUser = config.user;
 
   # can be read via `defaults read NSGlobalDomain`
   system.defaults.NSGlobalDomain = {
@@ -72,5 +71,5 @@
     ];
   };
 
-  system.stateVersion = 5;
+  system.stateVersion = 6;
 }
